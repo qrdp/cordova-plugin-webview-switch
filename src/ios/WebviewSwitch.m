@@ -35,16 +35,6 @@
     //TODO check available webviews?
 }
 
-- (void) load:(CDVInvokedUrlCommand*)command {
-    NSString *value = [command argumentAtIndex:0
-                                   withDefault:@"CDVUIWebViewEngine"
-                                      andClass:[NSString class]];
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Switching webview!"];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-    [self.mainview.settings setCordovaSetting:value forKey:@"CordovaWebViewEngine"];
-    [self reloadWebview];
-}
-
 - (void) setHostname:(CDVInvokedUrlCommand*)command {
     NSString *value = [command argumentAtIndex:0
                                    withDefault:@"localhost"
